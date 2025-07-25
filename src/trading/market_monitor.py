@@ -675,10 +675,22 @@ class MarketMonitor:
         """启动WebSocket监控"""
         try:
             logger.info("启动WebSocket监控...")
-            proxies = {
-                "http": "http://127.0.0.1:7890",
-                "https": "http://127.0.0.1:7890",
-            }
+            
+            # 从环境变量获取代理配置，如果没有则使用None
+            proxy_host = os.getenv("PROXY_HOST")
+            proxy_port = os.getenv("PROXY_PORT")
+            
+            proxies = None
+            if proxy_host and proxy_port:
+                proxy_url = f"http://{proxy_host}:{proxy_port}"
+                proxies = {
+                    "http": proxy_url,
+                    "https": proxy_url,
+                }
+                logger.info(f"使用代理: {proxy_url}")
+            else:
+                logger.info("不使用代理，直接连接")
+            
             # 创建WebSocket客户端
             self.websocket_client = UMFuturesWebsocketClient(
                 on_message=self.websocket_message_handler,
