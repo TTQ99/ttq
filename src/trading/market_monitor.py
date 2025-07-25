@@ -470,7 +470,7 @@ class MarketMonitor:
             for index, row in quit_df.iterrows():
 
                 symbol_klines = pd.read_csv(
-                    os.path.join(self.data_dir, f"klines/{row["symbol"]}_klines.csv")
+                    os.path.join(self.data_dir, f"klines/{row['symbol']}_klines.csv")
                 )
 
                 # 获取该symbol的记录
@@ -496,7 +496,7 @@ class MarketMonitor:
                     should_exit = current_quit_price > exit_price
                     exit_type = "止损"
                 else:
-                    logger.warning(f"{row["symbol"]} 方向未知: {direction}")
+                    logger.warning(f"{row['symbol']} 方向未知: {direction}")
                     return
 
                 print(exit_price, current_quit_price, direction, should_exit)
@@ -525,11 +525,11 @@ class MarketMonitor:
                         # 保存更新后的quit.csv
                         quit_df.to_csv(filename, index=False, encoding="utf-8")
                         logger.info(
-                            f"{row["symbol"]} 出场信号已发送并更新quit.csv，退出价格: {exit_price:.6f}"
+                            f"{row['symbol']} 出场信号已发送并更新quit.csv，退出价格: {exit_price:.6f}"
                         )
 
         except Exception as e:
-            logger.error(f"检查{row["symbol"]}海龟交易出场信号失败: {e}")
+            logger.error(f"检查{row['symbol']}海龟交易出场信号失败: {e}")
 
     def send_turtle_signal_notification(self, symbol, signal):
         """发送海龟交易信号通知"""
