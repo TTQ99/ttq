@@ -59,7 +59,7 @@ class BaseNotifier(ABC):
 - **ATR**: ${atr:,.2f}
 - **信号时间**: {signal_info['timestamp']}
 
-{f"## 📦 仓位建议\n- **建议仓位**: {position_size:.4f} BTC" if position_size is not None else ''}
+{f"## 📦 仓位建议" + chr(10) + f"- **建议仓位**: {position_size:.4f} BTC" if position_size is not None else ''}
 
 ## ⚠️ 风险提示
 > 数字货币交易存在风险，请谨慎投资
@@ -89,7 +89,7 @@ class BaseNotifier(ABC):
 - **状态**: {status}
 - **时间**: {details.get('timestamp', 'N/A') if details else 'N/A'}
 
-{f"## 📈 详细信息\n" + "\n".join([f"- **{k}**: {v}" for k, v in details.items() if k != 'timestamp']) if details else ""}
+{f"## 📈 详细信息" + chr(10) + "\n".join([f"- **{k}**: {v}" for k, v in details.items() if k != 'timestamp']) if details else ""}
 
 ---
 *来自海龟交易法监控系统*
