@@ -153,7 +153,7 @@ def main():
     test_signal_detection(df)
     
     print("✅ 测试完成!")
-    print("\n📝 使用说明:")
+    print("📝 使用说明:")
     print("1. 配置钉钉机器人设置（参考 email_config_example.txt）")
     print("2. 运行 python turtle_trading_system.py 启动监控")
     print("3. 系统将每5分钟检查一次交易信号")

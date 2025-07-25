@@ -89,7 +89,7 @@ class BaseNotifier(ABC):
 - **状态**: {status}
 - **时间**: {details.get('timestamp', 'N/A') if details else 'N/A'}
 
-{f"## 📈 详细信息" + chr(10) + "\n".join([f"- **{k}**: {v}" for k, v in details.items() if k != 'timestamp']) if details else ""}
+{f"## 📈 详细信息" + chr(10) + chr(10).join([f"- **{k}**: {v}" for k, v in details.items() if k != 'timestamp']) if details else ""}
 
 ---
 *来自海龟交易法监控系统*

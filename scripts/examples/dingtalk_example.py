@@ -97,7 +97,7 @@ def example_usage():
     
     print()
     print("✅ 示例消息发送完成!")
-    print("\n📝 使用提示:")
+    print("📝 使用提示:")
     print("1. 确保钉钉机器人配置正确")
     print("2. 注意消息发送频率限制")
     print("3. 可以根据需要自定义消息内容")

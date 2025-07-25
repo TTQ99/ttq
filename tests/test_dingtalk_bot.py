@@ -41,7 +41,7 @@ def test_dingtalk_bot():
     # 测试1: 发送简单文本消息
     print("🧪 测试1: 发送简单文本消息")
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    text_content = f"🤖 钉钉机器人测试消息\n⏰ 发送时间: {current_time}\n✅ 这是一条测试消息"
+    text_content = f"🤖 钉钉机器人测试消息 ⏰ 发送时间: {current_time} ✅ 这是一条测试消息"
     
     success = bot.send_text_message(text_content)
     print(f"结果: {'成功' if success else '失败'}")

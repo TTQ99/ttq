@@ -74,19 +74,19 @@ def main():
     
     # 1. 测试导入
     if not test_imports():
-        print("\n❌ 部分依赖导入失败")
+        print("❌ 部分依赖导入失败")
         print("请运行: python install_improved.py")
         return False
     
-    print("\n✅ 所有依赖导入成功!")
+    print("✅ 所有依赖导入成功!")
     
     # 2. 测试 API 连接
     if not test_binance_api():
-        print("\n❌ API 连接失败")
+        print("❌ API 连接失败")
         print("请检查网络连接")
         return False
     
-    print("\n🎉 所有测试通过!")
+    print("🎉 所有测试通过!")
     print("您现在可以运行 demo 了:")
     print("  python basic_.py")
     print("  python simple_price_demo.py")

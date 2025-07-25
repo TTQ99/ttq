@@ -54,7 +54,7 @@ class DingTalkBot(BaseNotifier):
             return None
             
         timestamp = str(round(time.time() * 1000))
-        string_to_sign = f'{timestamp}\n{self.secret}'
+        string_to_sign = f'{timestamp}{chr(10)}{self.secret}'
         
         # 使用HmacSHA256算法计算签名
         hmac_code = hmac.new(
@@ -235,7 +235,7 @@ def test_dingtalk_bot():
     # 测试1: 发送简单文本消息
     print("🧪 测试1: 发送简单文本消息")
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    text_content = f"🤖 钉钉机器人测试消息\n⏰ 发送时间: {current_time}\n✅ 这是一条测试消息"
+    text_content = f"🤖 钉钉机器人测试消息{chr(10)}⏰ 发送时间: {current_time}{chr(10)}✅ 这是一条测试消息"
     
     success = bot.send_text_message(text_content)
     print(f"结果: {'成功' if success else '失败'}")
@@ -278,7 +278,7 @@ def test_dingtalk_bot():
     # 测试3: 发送链接消息
     print("🧪 测试3: 发送链接消息")
     link_title = "📊 Binance BTC价格"
-    link_text = f"点击查看BTC实时价格信息\n当前时间: {current_time}"
+    link_text = f"点击查看BTC实时价格信息{chr(10)}当前时间: {current_time}"
     link_url = "https://www.binance.com/zh-CN/price/bitcoin"
     pic_url = "https://cryptologos.cc/logos/bitcoin-btc-logo.png"
     
@@ -294,7 +294,7 @@ def test_dingtalk_bot():
     at_mobiles = os.getenv('DINGTALK_AT_MOBILES', '').split(',') if os.getenv('DINGTALK_AT_MOBILES') else []
     
     if at_mobiles:
-        at_content = f"🔔 这是一条@消息测试\n⏰ 时间: {current_time}\n📱 已@指定用户"
+        at_content = f"🔔 这是一条@消息测试{chr(10)}⏰ 时间: {current_time}{chr(10)}📱 已@指定用户"
         success = bot.send_text_message(at_content, at_mobiles=at_mobiles)
         print(f"结果: {'成功' if success else '失败'}")
     else:

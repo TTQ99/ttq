@@ -23,7 +23,7 @@ def main():
 
 
     except KeyboardInterrupt:
-        print("\n👋 程序被用户中断")
+        print("👋 程序被用户中断")
     except Exception as e:
         print(f"❌ 程序运行出错: {e}")
 

@@ -41,10 +41,10 @@ def test_exit_signals():
     print(f"📊 当前价格: {test_klines.iloc[-1]['close']:.4f}")
     
     # 测试出场信号检查
-    print("\n🔍 测试出场信号检查...")
+    print("🔍 测试出场信号检查...")
     monitor.check_turtle_exit_signals('XRPUSDT')
     
-    print("\n✅ 测试完成!")
+    print("✅ 测试完成!")
 
 if __name__ == "__main__":
     test_exit_signals() 
